@@ -7,6 +7,16 @@ Offre:
 * Speed
 
 # Setup:
-``` php artisan serve ```
+` php artisan serve `
 
 [localhost:8000](localhost:8000)
+
+# Wiki
+* MVC
+	* Model  `app\Models\`  
+	Usano il controller per interagire con il database
+	* Controller  `app\Http\Controllers\`  
+	Come si comporta l'applicazione. Comunicano con il database per ricevere dati richiesti dai modelli da inserire nelle viste
+	* View `app\resources\views\`  
+	Pagine html / css / javascript. Output finale
+	
