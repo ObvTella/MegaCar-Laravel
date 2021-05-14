@@ -19,4 +19,5 @@ Offre:
 	Come si comporta l'applicazione. Comunicano con il database per ricevere dati richiesti dai modelli da inserire nelle viste
 	* View `app\resources\views\`  
 	Pagine html / css / javascript. Output finale
-	
+* vendor
+	* Contiene le librerie e i file essenziali per Laravel
