@@ -21,3 +21,7 @@ Offre:
 	Pagine html / css / javascript. Output finale
 * vendor
 	* Contiene le librerie e i file essenziali per Laravel
+	
+## ARTISAN
+`php artisan make:controller [nomeController]`  
+- Crea un nuovo controller

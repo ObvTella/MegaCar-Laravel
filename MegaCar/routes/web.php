@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () { //INDEX ROUTE megacar.project/
     return view('home');
 });
+
+//Route::metodo('/rotta', [nomeController::class, 'metodoController']);
+Route::get('/products', [ProductsController::class, 'index']); //PRODUCTS ROUTE megacar.project/products
+Route::get('/products/about', [ProductsController::class, 'about']); //PRODUCTS ROUTE megacar.project/products
+
+//Route::get('/products', 'App\Http\Controllers\ProductsController@index'); //METODO STRANO Laravel
