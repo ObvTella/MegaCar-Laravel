@@ -9,7 +9,7 @@
         </div>
 
         <div class="pt-10">
-            <a href="cars/create" class="border-b-2 pb-2 border-dotted italic text-gray-500">Aggiungi una macchina &rarr;</a>
+            <a href="/cars/create" class="border-b-2 pb-2 border-dotted italic text-gray-500">Aggiungi un brand &rarr;</a>
         </div>
 
         <div class="w-5/6 py-10">
@@ -41,5 +41,6 @@
                 </div>
             @endforeach
         </div>
+        {{ $cars->links() }}
     </div>
 @endsection

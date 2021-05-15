@@ -4,7 +4,7 @@
     <div class="m-auto w-4/8 py-24">
         <div class="text-center">
             <h1 class="text-5xl uppercase bold">
-                Aggiungi macchina
+                Aggiungi brand
             </h1>
         </div>
     </div>
@@ -22,4 +22,14 @@
             </div>
         </form>
     </div>
+
+    @if ($errors->any())
+    <div class="w-4/8 m-auto text-center">
+        @foreach ($errors->all() as $error)
+            <li class="text-red-500 list-none">
+                {{ $error }}
+            </li>
+        @endforeach
+    </div>
+@endif
 @endsection

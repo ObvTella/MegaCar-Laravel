@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Car;
 use App\Models\Headquarter;
+use App\Models\Product;
+//use App\Rules\Uppercase;
 
 class CarsController extends Controller
 {
@@ -15,8 +17,13 @@ class CarsController extends Controller
      */
     public function index()
     {
+        // PAGINE
+            // Query builder
+            // $cars = DB::table('cars')->paginate(5);
+            $cars = Car::paginate(5);
+
         // SELECT * FROM CARS
-        $cars = Car::all();
+        // $cars = Car::all();
         return view('cars.index', [ 'cars' => $cars]);
     }
 
@@ -38,11 +45,11 @@ class CarsController extends Controller
      */
     public function store(Request $request)
     {
-        // $car = new Car;
-        // $car->name = $request->input('name');
-        // $car->founded = $request->input('founded');
-        // $car->description = $request->input('description');
-        // $car->save();
+        $request->validate([
+            'name' => 'required|unique:cars',
+            'founded' => 'required|integer|min:1800|max:2021',
+            'description' => 'required'
+        ]);
 
         $car = Car::create([
             'name' => $request->input('name'),
@@ -62,7 +69,7 @@ class CarsController extends Controller
     public function show($id)
     {
         $car = Car::find($id);
-        $products = Product::find($id);
+        //$products = Product::find($id);
         return view('cars.show')->with('car', $car);
     }
 
