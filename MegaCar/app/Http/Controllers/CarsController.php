@@ -62,8 +62,7 @@ class CarsController extends Controller
     public function show($id)
     {
         $car = Car::find($id);
-        //$hq = Headquarter::find($id);
-
+        $products = Product::find($id);
         return view('cars.show')->with('car', $car);
     }
 

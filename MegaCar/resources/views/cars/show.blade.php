@@ -55,8 +55,18 @@
                     @empty
                         Nessun modello trovato
                     @endforelse
-
                 </table>
+
+                <p class="text-left">
+                    Prodotti:
+                    @forelse ( $car->products as $product )
+                        {{ $product->name }}
+                    @empty
+                        <p>
+                            Nessun prodotto
+                        </p>
+                    @endforelse
+                </p>
 
                 <hr class="mt-4 mb-8">
             </div>
