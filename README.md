@@ -35,7 +35,9 @@ Offre:
 		* `migrate:refresh`
 		* `migrate:status`
 * Factory
-	* Riempono il database per testing
+	* Riempono il database per testing  
+* Eloquent  
+	* ORM (Object relation method), piano di astrazione del database, 1 interfaccia per + database  
 ## ARTISAN
 - Crea un nuovo controller  
 `php artisan make:controller [nomeController]`  
