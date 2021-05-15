@@ -6,6 +6,9 @@
             <h1 class="text-5xl uppercase bold">
                 {{ $car->name }}
             </h1>
+            <p class="text-lg text-gray-700 py-6">
+                {{ $car->headquarter->headquarters }}, {{ $car->headquarter->country }}
+            </p>
         </div>
         <div class="py-10 text-center">
             <div class="m-auto">
