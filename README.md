@@ -45,6 +45,6 @@ Offre:
 `php artisan make:model [nomeModel] -m`  
 - Esegue operazioni delle migration sul database  
 `php artisan migrate`
-- Crea una nuova factory
-`php artisan make::factory [nomeFactory] --model=[nomeModel]
+- Crea una nuova factory  
+`php artisan make::factory [nomeFactory] --model=[nomeModel]`
 
