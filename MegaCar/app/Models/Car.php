@@ -24,4 +24,9 @@ class Car extends Model
     {
         return $this->hasOne(Headquarter::class);
     }
+
+    public function engines()
+    {
+        return $this->hasManyThrough(Engine::class, CarModel::class, 'car_id', 'model_id');
+    }
 }

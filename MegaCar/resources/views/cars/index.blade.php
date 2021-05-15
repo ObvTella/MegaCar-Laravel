@@ -4,7 +4,7 @@
     <div class="m-auto w-4/5 py-24">
         <div class="text-center">
             <h1 class="text-5xl uppercase bold">
-                Cars
+                MegaCar
             </h1>
         </div>
 
@@ -25,7 +25,7 @@
                         </form>
                     </div>
                     <span class="uppercase text-blue-500 font-bold text-xs italic">
-                        Founded: {{ $car->founded }}
+                        Creata: {{ $car->founded }}
                     </span>
                     <h2 class="text-gray-700 text-5xl hover:text-gray-500">
                         <a href="/cars/{{ $car->id }}">
