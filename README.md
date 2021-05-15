@@ -11,6 +11,9 @@ Offre:
 
 [localhost:8000](localhost:8000)
 
+* FIX MIX
+	* `npm i --save-dev laravel-mix@latest`
+
 # Wiki
 * MVC
 	* Model  `app\Models\`  
