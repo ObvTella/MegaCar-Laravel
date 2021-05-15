@@ -21,11 +21,14 @@
 
                 <table class="table-auto">
                     <tr class="bg-blue-100">
-                        <th class="w-1/2 border-4 border-gray-500">
+                        <th class="w-1/4 border-4 border-gray-500">
                             Modello
                         </th>
-                        <th class="w-1/2 border-4 border-gray-500">
+                        <th class="w-1/4 border-4 border-gray-500">
                             Motori
+                        </th>
+                        <th class="w-1/4 border-4 border-gray-500">
+                            Anno Produzione
                         </th>
                     </tr>
 
@@ -39,6 +42,13 @@
                                     @if ($model->id == $engine->model_id)
                                         {{ $engine->engine_name }}
                                     @endif
+                                @endforeach
+                            </td>
+                            <td class="border-4 border-gray-500">
+                                @foreach ( $car->productionDate as $data )
+                                @if ($model->id == $data->model_id)
+                                    {{ date('d-m-Y', strtotime($data->created_at)) }}
+                                @endif
                                 @endforeach
                             </td>
                         </tr>
