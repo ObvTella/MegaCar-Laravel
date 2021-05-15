@@ -576,6 +576,6 @@ class __TwigTemplate_dbc4740d959b2ec95877aabd22781ffef0b71a3317b4446aff52d5f6840
 
     public function getSourceContext()
     {
-        return new Source("", "home/index.twig", "D:\\_LARAVEL\\MegaCar-Laravel\\MegaCar\\public\\phpMyAdmin\\templates\\home\\index.twig");
+        return new Source("", "home/index.twig", "C:\\_ELABORATO\\MegaCar\\public\\phpMyAdmin\\templates\\home\\index.twig");
     }
 }
