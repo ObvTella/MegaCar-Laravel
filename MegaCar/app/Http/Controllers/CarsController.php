@@ -11,6 +11,11 @@ use App\Http\Requests\CreateValidationRequest;
 
 class CarsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
     /**
      * Display a listing of the resource.
      *S
@@ -44,14 +49,25 @@ class CarsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateValidationRequest $request)
+    public function store(Request $request)
     {
-        $request->validate();
+        $request->validate([
+            'name' => 'required|unique:cars|string',
+            'founded' => 'required|integer|min:1800|max:2021',
+            'description' => 'required|string',
+            'image' => 'required|mimes:png,jpg,jpeg|max:5048' // estensioni | grandezza in KB
+        ]);
+
+        $newImageName = time() . '-' . $request->name . '.' . $request->image->extension(); //Nuovo nome alla foto -> ora|marca.estensione
+
+        $request->image->move(public_path('images'), $newImageName); //sposto la foto su public\images
 
         $car = Car::create([
             'name' => $request->input('name'),
             'founded' => $request->input('founded'),
-            'description'=> $request->input('description')
+            'description'=> $request->input('description'),
+            'image_path' => $newImageName,
+            'user_id' => auth()->user()->id
         ]);
 
         return redirect('/cars');

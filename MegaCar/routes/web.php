@@ -14,4 +14,9 @@ use App\Http\Controllers\CarsController;
 |
 */
 
-Route::resource('/cars', CarsController::class); //INDEX ROUTE megacar.project/cars
+Route::resource('/cars', CarsController::class); //INDEX ROUTE megacar.project/carsAuth::routes();
+
+Auth::routes();
+
+Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

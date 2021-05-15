@@ -8,22 +8,32 @@
             </h1>
         </div>
 
-        <div class="pt-10">
-            <a href="/cars/create" class="border-b-2 pb-2 border-dotted italic text-gray-500">Aggiungi un brand &rarr;</a>
-        </div>
+        @if (Auth::user())
+            <div class="pt-10">
+                <a href="/cars/create" class="border-b-2 pb-2 border-dotted italic text-gray-500">Aggiungi un brand &rarr;</a>
+            </div>
+        @else
+            <p class="py-12 italic"> 
+                Effettua il login per aggiungere un brand.
+            </p>
+        @endif
 
         <div class="w-5/6 py-10">
             @foreach ($cars as $car)
                 <div class="m-auto">
-                    <div class="float-right">
-                        <a class="border-b-2 pb-2 border-dotted italic text-green-500" href="cars/{{ $car->id }}/edit">Edit &rarr;</a>
+                    @if (isset(Auth::user()->id) && Auth::user()->id == $car->user_id)
+                        <div class="float-right">
+                            <a class="border-b-2 pb-2 border-dotted italic text-green-500" href="cars/{{ $car->id }}/edit">Edit &rarr;</a>
 
-                        <form action="/cars/{{ $car->id }}" method="POST" class="pt-3">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="border-b-2 pb-2 border-dotted italic text-red-500">Delete &rarr;</button>
-                        </form>
-                    </div>
+                            <form action="/cars/{{ $car->id }}" method="POST" class="pt-3">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="border-b-2 pb-2 border-dotted italic text-red-500">Delete &rarr;</button>
+                            </form>
+                        </div>
+                    @endif
+
+                    <img src="{{ asset('images/' . $car->image_path) }}" class="w-40 mb-8 shadow-xl">
                     <span class="uppercase text-blue-500 font-bold text-xs italic">
                         Creata: {{ $car->founded }}
                     </span>
