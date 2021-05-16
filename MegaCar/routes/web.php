@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarsController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,13 @@ use App\Http\Controllers\CarsController;
 |
 */
 
-Route::resource('/cars', CarsController::class); //INDEX ROUTE megacar.project/carsAuth::routes();
+Route::resource('/cars', CarsController::class); //CARS ROUTE megacar.project/cars
 
-Auth::routes();
+Auth::routes(); //AUTH ROUTE /login /register /logout
 
-Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home'); //HOME ROUTE megacar.project/home
 
+Route::get('/', function () 
+{ //INDEX ROUTE megacar.project/
+    return view('guest');
+});
