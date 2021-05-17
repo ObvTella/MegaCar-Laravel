@@ -2,24 +2,23 @@
 
 @section('content')
 <main class="sm:container sm:mx-auto sm:mt-10">
-    <div class="w-full sm:px-6">
+    <div class="w-full px-6">
 
-        @if (session('status'))
-            <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
-                {{ session('status') }}
-            </div>
-        @endif
+        <section class="flex flex-col break-words bg-white border-1 rounded-md shadow-lg">
 
-        <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
-
-            <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+            <header class="font-semibold bg-megacar-primary text-white py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
                 Dashboard
             </header>
 
-            <div class="w-full p-6">
-                <p class="text-gray-700">
-                    Benvenuto su MegaCar!
-                </p>
+            <div class="w-full p-6 flex flex-col justify-between h-full text-center">
+                <div class="text-gray-700 italic font-semibold p-4">
+                    <p>
+                        Benvenuto <span>{{ Auth::user()->name }}</span>
+                    </p>
+                </div>
+                <div class="p-6">
+                    <a href="{{ url('/cars') }}" class="p-2 text-base leading-6 text-white whitespace-no-wrap rounded-md bg-megacar-primary hover:bg-pink-800 shadow"> Visualizza il catalogo</a>
+                </div>
             </div>
         </section>
     </div>

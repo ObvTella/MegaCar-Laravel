@@ -2,26 +2,35 @@
 
 @section('content')
     <div class="m-auto w-4/5 py-24">
-        <div class="text-center">
-            <img src="{{ asset('images/' . $car->image_path) }}" class="w-8/12 mb-8 shadow-xl">
-            <h1 class="text-5xl uppercase bold">
-                {{ $car->name }}
-            </h1>
-            <p class="text-lg text-gray-700 py-6">
-            </p>
-        </div>
-        <div class="py-10 text-center">
-            <div class="m-auto">
-                <span class="uppercase text-blue-500 font-bold text-xs italic">
-                    Creata: {{ $car->founded }}
-                </span>
-
-                <p class="text-lg text-gray-700 py-6">
-                    {{ $car->description }}
+        <div class=" flex flex-col text-center">
+            <div class="flex items-center justify-center flex-none">
+                <img src="{{ asset('images/' . $car->image_path) }}" class="w-15 mb-10">
+            </div>
+            <div class="flex items-center justify-center flex-none">
+                <h1 class="text-5xl tracking-tight bold uppercase">
+                    {{ $car->name }}
+                </h1>
+            </div>
+            <div>
+                <p class=" text-gray-700 py-6 uppercase font-bold">
+                    sede:
                 </p>
-
+            </div>
+        </div>
+        <div class="py-10 text-center flex flex-col">
+            <div class="m-auto">
+                <div class=" flex items-center justify-center">
+                    <span class="pl-4 uppercase text-megacar-primary font-bold text-xs">
+                        Creata: {{ $car->founded }}
+                    </span>
+                </div>
+                <div>
+                    <p class="text-lg text-gray-700 py-6 pr-10 pl-4 break-words m-1 leading-snug">
+                        {{ $car->description }}
+                    </p>
+                </div>
                 <table class="table-auto">
-                    <tr class="bg-blue-100">
+                    <tr class="bg-megacar_primary">
                         <th class="w-1/4 border-4 border-gray-500">
                             Modello
                         </th>

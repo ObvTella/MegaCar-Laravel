@@ -16,6 +16,10 @@ module.exports = {
       ...theme('colors'),
       'megacar-primary': '#750D4A',
      }),
+     ringColor: theme => ({
+      ...theme('colors'),
+      'megacar-primary': '#9C3A73',
+     }),
     fontFamily: {
       'megacar-font': ['Abel', 'sans-serif'] // Ensure fonts with spaces have " " surrounding it.
     },
@@ -23,6 +27,9 @@ module.exports = {
       backgroundImage: theme => ({
         'megacar-image': "url('/sys/images/megacar.jpg')",
        }),
+       colors: {
+        'megacar_primary':'#9C3A73',
+      }
     }
   },
   variants: {},

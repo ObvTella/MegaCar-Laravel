@@ -15,7 +15,7 @@
 </head>
 <body class="bg-white">
     <!-- SEZIONE:Titolo / Login -->
-    <section class="relative w-full px-8 text-gray-700 font-extrabold tracking-tight lg:text-xl">
+    <section class="relative w-full px-8 text-gray-700 font-semibold tracking-tight lg:text-xl">
         <!-- SPAZIO TITOLO LOGIN flex container -->
         <div class="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
             <!-- TITOLO -->
@@ -25,13 +25,13 @@
                 @auth
                     <!-- SE LOGGATO MOSTRA HOME -->
                     <span class="inline-flex rounded-md shadow-sm">
-                        <a href="{{ url('/home') }}" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-megacar-primary border border-megacar-primary rounded-md shadow-sm hover:bg-pink-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-600">Home</a>
+                        <a href="{{ url('/home') }}" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-megacar-primary rounded-md shadow-sm hover:bg-pink-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-600">Home</a>
                     </span>
                 @else
                     <!-- ALTRIMENTI LOGIN / REGISTRATI -->
                     <a href="{{ route('login') }}" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-gray-600 whitespace-no-wrap bg-white border border-gray-200 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:shadow-none">Login</a>
                     <span class="inline-flex rounded-md shadow-sm">
-                        <a href="{{ route('register') }}" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-megacar-primary border border-megacar-primary rounded-md shadow-sm hover:bg-pink-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-600">Registrati</a>
+                        <a href="{{ route('register') }}" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-megacar-primary rounded-md shadow-sm hover:bg-pink-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-600">Registrati</a>
                     </span>
                 @endauth
             </div>
@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <!-- FOTO -->
-                <div class="w-full md:w-1/2">
+                <div class="w-full md:w-1/2 shadow-xl">
                     <div class="w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-xl">
                         <img src="/sys/images/megacar.jpg">
                     </div>
@@ -116,7 +116,7 @@
             </a>
         </div>
         <div class="container px-8 mx-auto sm:px-12 lg:px-20">
-            <h1 class="text-sm font-bold tracking-wide text-center text-gray-800 uppercase mb-7">Le migliori auto.</h1>
+            <h1 class="text-sm font-bold tracking-wide text-center text-gray-800 uppercase mb-7">Le migliori auto</h1>
             <div class="grid items-center justify-center grid-cols-12 gap-y-8">
                 <div class="flex items-center justify-center col-span-6 sm:col-span-4 md:col-span-3 xl:col-span-2">
                     <img src="/sys/images/toyota.png" alt="Toyota" class="block object-contain h-12">
@@ -143,7 +143,7 @@
     <!-- CREDITI -->
     <section class="text-gray-700">
         <div class="container flex flex-col items-center px-8 py-8 mx-auto max-w-7xl sm:flex-row">
-            <span class="text-xl leading-none text-gray-900 select-none font-extrabold tracking-tight italic">MegaCar</span>
+            <span class="text-xl leading-none text-gray-900 select-none font-semibold tracking-tight italic">MegaCar</span>
             <p class="mt-4 text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l sm:border-gray-200 sm:mt-0">Esame di stato 2021</p>
             <p class="mt-4 text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l sm:border-gray-200 sm:mt-0">
                 <a href="https://github.com/ObvTella/MegaCar-Laravel" class="text-gray-400 hover:text-gray-500">
