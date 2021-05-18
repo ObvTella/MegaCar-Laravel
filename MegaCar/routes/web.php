@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarsController;
+use App\Http\Controllers\CarModelController;
+use App\Http\Controllers\MotorsController;
+use App\Http\Controllers\SalesController;
 use App\Http\Controllers\HomeController;
 
 /*
@@ -16,6 +19,12 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::resource('/cars', CarsController::class); //CARS ROUTE megacar.project/cars
+Route::resource('/carmodels', CarModelController::class); //CARSMODELs ROUTE megacar.project/carmodels
+Route::resource('/engines', MotorsController::class); //ENGINE ROUTE megacar.project/engines
+
+Route::get('/sales/{id}/create', [\App\Http\Controllers\SalesController::class, 'create']); //SALE ROUTE megacar.project/sales/{id}/create
+Route::post('/sales/buy', [\App\Http\Controllers\SalesController::class, 'store']); //SALE ROUTE megacar.project/sales
+
 
 Auth::routes(); //AUTH ROUTE /login /register /logout
 

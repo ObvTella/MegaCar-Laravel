@@ -13,8 +13,14 @@ class CarModel extends Model
 
     protected $primaryKey = 'id';
 
+    protected $fillable = ['model_name', 'car_id', 'price', 'prod_year', 'used'];
+
     public function car()
     {
         return $this->belongsTo(Car::class);
+    }
+    public function engines()
+    {
+        return $this->hasMany(Engine::class);
     }
 }

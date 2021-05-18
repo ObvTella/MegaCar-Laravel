@@ -5,16 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Engine extends Model
+class Sales extends Model
 {
     use HasFactory;
-    protected $table = 'engines';
+
+    protected $table = 'sales';
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['model_id', 'engine_name'];
-    public function carModels()
+    protected $fillable = ['user_email', 'engine_id', 'price'];
+
+    public function user()
     {
-        return $this->belongsTo(CarModel::class);
+        return $this->belongsTo(User::class);
     }
 }

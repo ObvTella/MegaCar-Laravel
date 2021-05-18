@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Car;
-use App\Models\Headquarter;
 use App\Models\Product;
 use App\Http\Requests\CreateValidationRequest;
 // use App\Rules\Uppercase;
