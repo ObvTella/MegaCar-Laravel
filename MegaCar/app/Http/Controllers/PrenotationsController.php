@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 use App\Models\Car;
 use App\Models\CarModel;
 use App\Models\Engine;
-use App\Models\Sales;
 use App\Models\User;
+use App\Models\Prenotation;
 use App\Http\Requests\CreateValidationRequest;
 use DB;
 
 
-class SalesController extends Controller
+class PrenotationsController extends Controller
 {
     public function __construct()
     {
@@ -29,7 +29,7 @@ class SalesController extends Controller
         $engines = Engine::where('model_id', $id)->get();
         $model_name = CarModel::where('id', $id)->first();
         $car_brand = Car::where('id', $model_name->car_id)->first();
-        return view('sales.create')->with('engines', $engines)->with('model_name', $model_name)->with('car_brand', $car_brand);
+        return view('prenotations.create')->with('engines', $engines)->with('model_name', $model_name)->with('car_brand', $car_brand);
     }
 
     /**
@@ -40,10 +40,10 @@ class SalesController extends Controller
      */
     public function store(Request $request)
     {
-        $sale = Sales::create([
+        $prenotations = Prenotation::create([
             'user_email' => $request->input('user_email'),
             'engine_id' => $request->input('engine_id'),
-            'price'=> $request->input('price'),
+            'date'=> $request->input('date'),
         ]);
 
         return redirect('/cars');
@@ -53,23 +53,20 @@ class SalesController extends Controller
     {
         $user = User::where('email', $email)->get()->first();
 
-        $sales = DB::table('sales')
-            ->join('engines', 'engines.id', '=', 'sales.engine_id')
+        $prenotations = DB::table('prenotations')
+            ->join('engines', 'engines.id', '=', 'prenotations.engine_id')
             ->join('car_models', 'car_models.id', '=', 'engines.model_id')
             ->join('cars', 'cars.id', '=', 'car_models.car_id')
             ->select(
-                'sales.id as id_acquisto', 'sales.created_at as data',
+                'prenotations.id as id_prenotazione', 'prenotations.date as data',
                 'cars.name as brand', 
-                'car_models.model_name as modello', 'car_models.price as prezzo', 'car_models.prod_year as anno_prod',
+                'car_models.model_name as modello', 'car_models.prod_year as anno_prod',
                 'engines.engine_name as motore'
                     )
-            ->where('sales.user_email', $user->email)
-            ->groupBy('id_acquisto')
-            //->paginate(5);
+            ->where('prenotations.user_email', $user->email)
+            ->groupBy('id_prenotazione')
             ->get();
-        // $sales = $sales->groupBy('id_acquisto');
-        // $sales = $sales->paginate(5);
 
-        return view('sales.show')->with('sales', $sales)->with('user', $user);
+        return view('prenotations.show')->with('prenotations', $prenotations)->with('user', $user);
     }
 }

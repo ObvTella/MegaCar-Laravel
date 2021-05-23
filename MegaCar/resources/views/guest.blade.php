@@ -52,7 +52,7 @@
                         <!-- Paragrafo piccolo -->
                         <p class="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">Prenota subito il tuo appuntamento con uno dei nostri specialisti qualificati.</p>
                         <div class="relative flex flex-col sm:flex-row sm:space-x-4">
-                            <a href="{{ route('login') }}" class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-megacar-primary rounded-md sm:mb-0 hover:bg-pink-800 sm:w-auto">
+                            <a href="{{ url('/cars') }}" class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-megacar-primary rounded-md sm:mb-0 hover:bg-pink-800 sm:w-auto">
                             Prenota subito!
                             <i class="far fa-arrow-alt-circle-right pl-2"></i>
                             </a>

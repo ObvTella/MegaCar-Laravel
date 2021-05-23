@@ -19,6 +19,12 @@
                 <div class="p-6">
                     <a href="{{ url('/cars') }}" class="p-2 text-base leading-6 text-white whitespace-no-wrap rounded-md bg-megacar-primary hover:bg-pink-800 shadow"> Visualizza il catalogo</a>
                 </div>
+                <div class="p-6">
+                    <a href="sales/show/{{ Auth::user()->email }}" class="p-2 text-base leading-6 text-white whitespace-no-wrap rounded-md bg-megacar-primary hover:bg-pink-800 shadow"> Visualizza gli acquisti</a>
+                </div>
+                <div class="p-6">
+                    <a href="prenotations/show/{{ Auth::user()->email }}" class="p-2 text-base leading-6 text-white whitespace-no-wrap rounded-md bg-megacar-primary hover:bg-pink-800 shadow"> Visualizza consulenze</a>
+                </div>
             </div>
         </section>
     </div>

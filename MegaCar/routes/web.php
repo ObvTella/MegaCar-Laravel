@@ -5,6 +5,7 @@ use App\Http\Controllers\CarsController;
 use App\Http\Controllers\CarModelController;
 use App\Http\Controllers\MotorsController;
 use App\Http\Controllers\SalesController;
+use App\Http\Controllers\PrenotationsController;
 use App\Http\Controllers\HomeController;
 
 /*
@@ -23,7 +24,12 @@ Route::resource('/carmodels', CarModelController::class); //CARSMODELs ROUTE meg
 Route::resource('/engines', MotorsController::class); //ENGINE ROUTE megacar.project/engines
 
 Route::get('/sales/{id}/create', [\App\Http\Controllers\SalesController::class, 'create']); //SALE ROUTE megacar.project/sales/{id}/create
-Route::post('/sales/buy', [\App\Http\Controllers\SalesController::class, 'store']); //SALE ROUTE megacar.project/sales
+Route::post('/sales/buy', [\App\Http\Controllers\SalesController::class, 'store']); //SALE ROUTE megacar.project/sales/buy
+Route::get('/sales/show/{email}', [\App\Http\Controllers\SalesController::class, 'show']); //SALE ROUTE megacar.project/sales/show/{email}
+
+Route::get('/prenotations/{id}/create', [\App\Http\Controllers\PrenotationsController::class, 'create']); //PRENOTATION ROUTE megacar.project/prenotations/{id}/create
+Route::post('/prenotations/make', [\App\Http\Controllers\PrenotationsController::class, 'store']); //PRENOTATION ROUTE megacar.project/prenotations/make
+Route::get('/prenotations/show/{email}', [\App\Http\Controllers\PrenotationsController::class, 'show']); //PRENOTATION ROUTE megacar.project/prenotations/show/{email}
 
 
 Auth::routes(); //AUTH ROUTE /login /register /logout

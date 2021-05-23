@@ -7,13 +7,11 @@
                 catalogo
             </h1>
         </div>
-
-        @if (Auth::user()->admin == '1')
-            <div class="pt-10">
-                <a href="/cars/create" class="border p-2 font-semibold text-megacar-primary rounded-md">Aggiungi un brand &rarr;</a>
-            </div>
-        @endif
-
+            @if (Auth::user() && Auth::user()->admin == '1')
+                <div class="pt-10">
+                    <a href="/cars/create" class="border p-2 font-semibold text-megacar-primary rounded-md">Aggiungi un brand &rarr;</a>
+                </div>
+            @endif
         <div class="w-5/6 py-10">
             @foreach ($cars as $car)
             <div class=" p-4 m-auto flex flex-none justify-between">
@@ -35,23 +33,23 @@
                         </p>
                     </div>
                 </div>
-                @if (Auth::user()->admin == 1)
-                <div class="flex flex-col flex-none justify-between">
-                    <div class="pt-4 h-1/2 flex items-center justify-center ">
-                        <a href="cars/{{ $car->id }}/edit">
-                            <button class="border p-2 font-semibold text-green-500 rounded-md">Modifica &rarr;</button>
-                        </a>
-                        
+                @if (Auth::user() && Auth::user()->admin == '1')
+                    <div class="flex flex-col flex-none justify-between">
+                        <div class="pt-4 h-1/2 flex items-center justify-center ">
+                            <a href="cars/{{ $car->id }}/edit">
+                                <button class="border p-2 font-semibold text-green-500 rounded-md">Modifica &rarr;</button>
+                            </a>
+                            
+                        </div>
+                        <div class=" h-1/2 flex items-center justify-center">
+                            <form action="/cars/{{ $car->id }}" method="POST" class="pt-3">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="border p-2 font-semibold text-red-500 rounded-md">Cancella &rarr;</button>
+                            </form>
+                        </div>
                     </div>
-                    <div class=" h-1/2 flex items-center justify-center">
-                        <form action="/cars/{{ $car->id }}" method="POST" class="pt-3">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="border p-2 font-semibold text-red-500 rounded-md">Cancella &rarr;</button>
-                        </form>
-                    </div>
-                </div>
-            @endif
+                @endif
             </div>
             <hr class="mt-4 mb-8 text-megacar-primary">
             @endforeach
