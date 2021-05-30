@@ -107,7 +107,7 @@ class CarsController extends Controller
      */
     public function update(CreateValidationRequest $request, $id)
     {
-        $request->validate();
+        $request->validated();
         $car = Car::where('id', $id)
             ->update([
             'name' => $request->input('name'),
